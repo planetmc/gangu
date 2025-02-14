@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GANGULI</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+
+    <script>
+        document.getElementById("btn").onclick = function() {
+            // Nascondi il pulsante
+            document.body.innerHTML = '';
+            
+            // Crea un elemento per la musica
+            var audio = new Audio('https://qu.ax/epWtW.mp3');  // Inserisci l'URL della canzone
+            audio.loop = true;
+            audio.play();
+            
+            // Imposta l'immagine a schermo intero
+            var img = new Image();
+            img.src = 'https://qu.ax/UHfxq.png';  // Inserisci l'URL della tua foto
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style.left = '0';
+            img.style.width = '100vw';
+            img.style.height = '100vh';
+            img.style.objectFit = 'cover';
+
+            // Aggiungi l'immagine alla pagina
+            document.body.appendChild(img);
+
+            // Attiva la modalità schermo intero
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
